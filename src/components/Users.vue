@@ -1,14 +1,15 @@
 <template>
   <div class="component">
     <h1>The Users:</h1>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6"></div>
-      <div class="col-xs-12 col-sm-6"></div>
-    </div>
+    <ul class="row">
+      <user-app v-for="user in users" v-bind:userInfo="user" v-bind:key="user.id"></user-app>
+    </ul>
   </div>
 </template>
 
 <script>
+import User from "./User.vue";
+
 export default {
   data: function() {
     return {
@@ -33,6 +34,9 @@ export default {
         }
       ]
     };
+  },
+  components: {
+    "user-app": User
   }
 };
 </script>
@@ -42,5 +46,9 @@ export default {
 <style scoped>
 div {
   background-color: lightblue;
+}
+
+ul {
+  list-style: none;
 }
 </style>
