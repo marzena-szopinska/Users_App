@@ -5,10 +5,11 @@
       <p>Pick a user to show details</p>
     </div>
     <div v-else>
-      <p>User Name: {{user.name}}</p>
-      <p>User Age: {{user.age}}</p>
-      <p>User Hobby: {{user.hobby}}</p>
+      <h4>You picked user named {{ user.name}}</h4>
+      <p>Age: {{user.age}}</p>
+      <p>Hobby: {{user.hobby}}</p>
     </div>
+    <button v-bind:disabled="!user" v-on:click="editUser">Send to edit</button>
   </div>
 </template>
 
@@ -21,6 +22,11 @@ export default {
       user: null
     };
   },
+  methods: {
+    editUser() {
+      userBus.$emit("userToEdit", this.user);
+    }
+  },
   created() {
     userBus.$on("pickedUser", user => {
       this.user = user;
@@ -32,5 +38,9 @@ export default {
 <style scoped>
 div {
   background-color: lightcoral;
+}
+
+:disabled {
+  border: 2px solid gray;
 }
 </style>

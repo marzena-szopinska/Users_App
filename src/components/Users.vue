@@ -8,7 +8,9 @@
       <div class="col-xs-12 col-sm-6">
         <user-detail></user-detail>
       </div>
-      <div class="col-xs-12 col-sm-6"></div>
+      <div class="col-xs-12 col-sm-6">
+        <user-edit></user-edit>
+      </div>
     </div>
   </div>
 </template>
@@ -16,6 +18,7 @@
 <script>
 import User from "./User.vue";
 import UserDetail from "./UserDetail";
+import UserEdit from "./UserEdit";
 
 export default {
   data: function() {
@@ -44,7 +47,8 @@ export default {
   },
   components: {
     "user-app": User,
-    "user-detail": UserDetail
+    "user-detail": UserDetail,
+    "user-edit": UserEdit
   }
 };
 </script>
