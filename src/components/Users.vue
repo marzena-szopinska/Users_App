@@ -1,6 +1,12 @@
 <template>
   <div class="component">
     <h1>The Users:</h1>
+    <div class="holder" v-for="user in users">
+      <p>{{user.name}}</p>
+      <p>{{user.age}}</p>
+      <p>{{user.hobby}}</p>
+    </div>
+
     <ul class="row">
       <user-app v-for="user in users" v-bind:userInfo="user" v-bind:key="user.id"></user-app>
     </ul>
@@ -58,6 +64,12 @@ export default {
 <style scoped>
 div {
   background-color: lightblue;
+}
+
+.holder {
+  background-color: yellow;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 ul {

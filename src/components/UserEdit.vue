@@ -10,7 +10,7 @@
       <p>Age: {{userToEdit.age}}</p>
       <p>Hobby: {{userToEdit.hobby}}</p>
     </div>
-    <button v-bind:disabled="!userToEdit">Edit</button>
+    <button v-bind:disabled="!userToEdit" v-on:click="editUser">Edit</button>
   </div>
 </template>
 
@@ -27,6 +27,13 @@ export default {
     userBus.$on("userToEdit", user => {
       this.userToEdit = user;
     });
+  },
+  methods: {
+    editUser() {
+      this.userToEdit.name = "Marzena";
+      this.userToEdit.age = 28;
+      this.userToEdit.hobby = "Yoga";
+    }
   }
 };
 </script>
