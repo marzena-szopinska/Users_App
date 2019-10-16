@@ -6,8 +6,15 @@
     </div>
     <div v-else>
       <h4>The user named {{ userToEdit.name }} can be editted now</h4>
+      <input type="text" v-on:input="userToEdit.name = $event.target.value" placeholder="edit name" />
       <p>Name: {{userToEdit.name}}</p>
+      <input type="text" v-on:input="userToEdit.age = $event.target.value" placeholder="edit age" />
       <p>Age: {{userToEdit.age}}</p>
+      <input
+        type="text"
+        placeholder="edit hobby"
+        v-on:input="userToEdit.hobby = $event.target.value"
+      />
       <p>Hobby: {{userToEdit.hobby}}</p>
     </div>
     <button v-bind:disabled="!userToEdit" v-on:click="editUser">Edit</button>
