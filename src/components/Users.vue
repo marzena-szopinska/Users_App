@@ -4,11 +4,18 @@
     <ul class="row">
       <user-app v-for="user in users" v-bind:userInfo="user" v-bind:key="user.id"></user-app>
     </ul>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <user-detail></user-detail>
+      </div>
+      <div class="col-xs-12 col-sm-6"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import User from "./User.vue";
+import UserDetail from "./UserDetail";
 
 export default {
   data: function() {
@@ -36,7 +43,8 @@ export default {
     };
   },
   components: {
-    "user-app": User
+    "user-app": User,
+    "user-detail": UserDetail
   }
 };
 </script>
